@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*font-family: 'dubai',sans-serif;*/
+    scroll-behavior: smooth;
+}
+
+.c_body{
+    position: absolute;
+    height: 50rem;
+    width: 95.6rem;
+    background-color: #232946;
+    top: 0rem;
+}
