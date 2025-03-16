@@ -1,0 +1,209 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header,
+footer {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px 0;
+}
+
+.content div {
+    border: 1px solid #ccc;
+    padding: 20px;
+    flex: 1;
+    min-width: 280px;
+    margin: 10px;
+    text-align: center;
+}
+
+.rating {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px 0;
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* Main Content Styles */
+.main-content {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.product-gallery {
+    flex: 1 1 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-gallery img {
+    max-width: 90%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-details {
+    background-color: #fff;
+    padding: 20px;
+    position: absolute;
+    width: 100rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.highlights ul {
+    list-style: none;
+    padding: 0;
+}
+
+.highlights ul li {
+    background-color: #eaf7f6;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.pricing p {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #14213d;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #004c48;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px 0;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #14213d;
+}
+
+/* Specifications Table */
+.specifications table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.specifications th, .specifications td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.specifications th {
+    background-color: #eaf7f6;
+}
+
+/* Rating Container */
+
+.prime_cont{
+    position: absolute;
+    height: 50rem;
+    width: 50rem;
+}
+
+.rating-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.feature-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(33.333% - 20px); /* 3 columns layout */
+    box-sizing: border-box;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+}
+
+.bar {
+    flex: 1;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin: 0 10px;
+    position: relative;
+}
+
+.fill {
+    height: 100%;
+    background: linear-gradient(to right, rgb(250, 75, 0), rgb(11, 252, 252));
+    border-radius: 10px;
+    width: 0;
+}
+
+.score {
+    font-weight: bold;
+}
+
+/* Footer Styles */
+.footer {
+    text-align: center;
+    background-color: #004c48;
+    color: #fff;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

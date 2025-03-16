@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSpec Input Form</title>
+    <style>
+        body {
+            background-color: #14213d;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #1d3557;
+            position: absolute;
+            top: 5rem;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            width: 500px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .form-container label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .form-container input, .form-container select, .form-container textarea {
+            width: 90%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f1faee;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #e63946;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #d62828;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>TechSpec Input Form</h1>
+        <form action="Data_input(Admin).php" method="post">
+            <label for="model_name">Model Name</label>
+            <input type="text" id="model_name" name="model_name" required>
+
+            <label for="display">Display</label>
+            <input type="text" id="display" name="display" required>
+
+            <label for="screen_size">Screen Size</label>
+            <input type="text" id="screen_size" name="screen_size" required>
+
+            <label for="processor">Processor</label>
+            <input type="text" id="processor" name="processor" required>
+
+            <label for="ram">RAM</label>
+            <input type="text" id="ram" name="ram" required>
+
+            <label for="storage">Storage</label>
+            <input type="text" id="storage" name="storage" required>
+
+            <label for="storage_type">Storage Type</label>
+            <input type="text" id="storage_type" name="storage_type" required>
+
+            <label for="network">Network</label>
+            <input type="text" id="network" name="network" required>
+
+            <label for="battery">Battery</label>
+            <input type="text" id="battery" name="battery" required>
+
+            <label for="bluetooth">Bluetooth</label>
+            <input type="text" id="bluetooth" name="bluetooth" required>
+
+            <label for="sensors">Sensors</label>
+            <textarea id="sensors" name="sensors" required></textarea>
+
+            <label for="rear_camera">Rear Camera</label>
+            <input type="text" id="rear_camera" name="rear_camera" required>
+
+            <label for="front_camera">Front Camera</label>
+            <input type="text" id="front_camera" name="front_camera" required>
+
+            <label for="os">Operating System (OS)</label>
+            <input type="text" id="os" name="os" required>
+
+            <label for="height">Height</label>
+            <input type="text" id="height" name="height" required>
+
+            <label for="width">Width</label>
+            <input type="text" id="width" name="width" required>
+
+            <label for="colours">Colours</label>
+            <input type="text" id="colours" name="colours" required>
+
+            <label for="features">Features</label>
+            <textarea id="features" name="features" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

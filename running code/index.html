@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechSpec - Compare Devices</title>
+    <link rel="stylesheet" href="/techspec/running code/css/styles.css" />
+  </head>
+
+  <style>
+    /*under maintainence prompt*/
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #14213d;
+    }
+    h2 {
+      color: white;
+    }
+
+    .navbar {
+      background-color: #14213d;
+      padding: 10px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      padding: 10px 20px;
+      display: inline-block;
+    }
+
+    .warning-prompt-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none; /* Hidden by default */
+      justify-content: center;
+      align-items: center;
+      z-index: 3;
+    }
+
+    .warning-prompt {
+      background-color: #fff;
+      border: 2px solid #e74c3c;
+      border-radius: 8px;
+      padding: 20px;
+      width: 400px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .warning-prompt .icon {
+      font-size: 50px;
+      color: #e74c3c;
+      margin-bottom: 20px;
+    }
+
+    .warning-prompt .message {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .warning-prompt .buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .warning-prompt button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
+      transition: background-color 0.3s;
+    }
+
+    .warning-prompt .cancel-btn {
+      background-color: #95a5a6;
+      color: #fff;
+    }
+
+    .warning-prompt .cancel-btn:hover {
+      background-color: #7f8c8d;
+    }
+
+    .warning-prompt .proceed-btn {
+      background-color: #e74c3c;
+      color: #fff;
+    }
+
+    .warning-prompt .proceed-btn:hover {
+      background-color: #c0392b;
+    }
+
+    /* Button to trigger warning */
+    .trigger-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
+      transition: background-color 0.3s;
+    }
+
+    .trigger-btn:hover {
+      background-color: #2980b9;
+    }
+
+    #iphone_vs_samsung {
+      display: none; /* Hidden by default */
+      margin-top: 20px;
+      max-width: 100%;
+      height: auto;
+      right: auto;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    #macboox_vs_omen {
+      display: none; /* Hidden by default */
+      margin-top: 20px;
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    #pixelwatch_vs_applewatch {
+      display: none; /* Hidden by default */
+      margin-top: 20px;
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    #airpods_vs_buds {
+      display: none; /* Hidden by default */
+      margin-top: 20px;
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer_box1 {
+      position: absolute;
+      height: 25rem;
+      width: 95.6rem;
+      top: 20rem;
+      left: 0rem;
+      background-color: black;
+      font-family: "dubai", sans-serif;
+    }
+
+    .footer_box1 .f_1 {
+      position: absolute;
+      height: 16rem;
+      top: 2rem;
+      left: 5rem;
+      border-radius: 30px;
+    }
+
+    .footer_box1 .f_logo {
+      position: absolute;
+      top: 13rem;
+      left: 6.5rem;
+      text-align: center;
+      font-size: 10px;
+      color: white;
+    }
+
+    /*company box!!*/
+    .footer_box1 .company_links {
+      position: absolute;
+      top: 8rem;
+      left: 30rem;
+      color: white;
+    }
+
+    .footer_box1 .company_links .abt_btn {
+      position: absolute;
+      border-radius: 15px;
+      left: 0.7rem;
+      width: 5rem;
+      height: 20px;
+      font-size: small;
+      background-color: black;
+      color: #023e8a;
+      border-color: transparent;
+      align-content: space-between;
+      transition: border-color 0.5s ease;
+    }
+
+    .footer_box1 .company_links .abt_btn:hover {
+      border-color: rgb(123, 121, 121);
+      color: white;
+    }
+
+    .footer_box1 .company_links .contact_btn2 {
+      position: absolute;
+      border-radius: 15px;
+      left: 0.7rem;
+      width: 5rem;
+      height: 20px;
+      font-size: small;
+      background-color: black;
+      color: #023e8a;
+      border-color: transparent;
+      align-content: space-between;
+      transition: border-color 0.5s ease;
+    }
+
+    .footer_box1 .company_links .contact_btn2:hover {
+      border-color: rgb(123, 121, 121);
+      color: white;
+    }
+
+    /*services links box*/
+    .footer_box1 .services_link {
+      position: absolute;
+      top: 8rem;
+      left: 50rem;
+      color: white;
+    }
+
+    .footer_box1 .services_link .devlopment_btn {
+      position: absolute;
+      border-radius: 15px;
+      left: 0.1rem;
+      width: 6rem;
+      height: 30px;
+      font-size: small;
+      background-color: black;
+      color: #023e8a;
+      border-color: transparent;
+      align-content: space-between;
+      transition: border-color 0.5s ease;
+    }
+
+    .footer_box1 .services_link .devlopment_btn:hover {
+      border-color: rgb(123, 121, 121);
+      color: white;
+    }
+
+    /*social links*/
+    .footer_box1 .social_links {
+      position: absolute;
+      top: 8rem;
+      left: 72rem;
+      color: white;
+    }
+
+    .footer_box1 .social_links .insta_btn {
+      position: absolute;
+      border-radius: 15px;
+      width: 5rem;
+      height: 30px;
+      font-size: small;
+      background-color: black;
+      color: #023e8a;
+      border-color: transparent;
+      align-content: space-between;
+      transition: border-color 0.5s ease;
+    }
+
+    .footer_box1 .social_links .insta_btn:hover {
+      border-color: rgb(123, 121, 121);
+      color: white;
+    }
+
+    .footer_box1 .social_links .facebook_btn {
+      position: absolute;
+      border-radius: 15px;
+      width: 5rem;
+      height: 30px;
+      font-size: small;
+      background-color: black;
+      color: #023e8a;
+      border-color: transparent;
+      align-content: space-between;
+      transition: border-color 0.5s ease;
+    }
+
+    .footer_box1 .social_links .facebook_btn:hover {
+      border-color: rgb(123, 121, 121);
+      color: white;
+    }
+
+    .instagram_icon {
+      position: fixed;
+      bottom: 5rem;
+      left: 0.5rem;
+      height: 25px;
+      z-index: 3;
+    }
+    .support_icon {
+      position: fixed;
+      height: 29px;
+      bottom: 2rem;
+      z-index: 3;
+      left: 0.5rem;
+    }
+
+
+  </style>
+  <body>
+      <header>
+        <div class="navbar">
+          <div class="logo">
+            <a href="/techspec/main website code/main_page.html"
+              ><h1>TechSpec</h1></a
+            >
+          </div>
+          <nav>
+            <ul>
+              <li><a href="mobiles.php">Mobiles</a></li>
+              <li><a href="#" onclick="showWarning()">Laptops</a></li>
+              <li><a href="#" onclick="showWarning()">Smartwatches</a></li>
+              <li><a href="#" onclick="showWarning()">Headphones</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-text">
+          <h2 class="heading_text">Compare, Choose, Upgrade</h2>
+          <p>Find the best devices that match your needs.</p>
+          <div class="search-bar">
+            <input
+              type="text"
+              placeholder="Search devices..."
+              id="deviceSearch"
+            />
+            <button id="searchBtn">Search</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="footer_box1">
+        <img class="f_1" src="/techspec/graphics/logo.png" />
+        <div class="f_logo">
+          <h2>TechSpec(technical comparator)</h2>
+          <br />
+          <h4>estd 2024</h4>
+        </div>
+
+        <div class="company_links">
+          <h2>Company</h2>
+          <br />
+          <button
+            class="abt_btn"
+            onclick="window.location.href='about_us.html'"
+          >
+            About Us
+          </button>
+          <br />
+          <br />
+          <button
+            class="contact_btn2"
+            onclick="window.location.href='mailto:aryandeshmukh2345@gmail.com'"
+          >
+            Contact Us
+          </button>
+        </div>
+
+        <div class="services_link">
+          <h2>Services</h2>
+          <br />
+          <button
+            class="devlopment_btn"
+            onclick="window.location.href='https://drive.google.com/drive/folders/1j3TzNaFbRSb61lTCIU6pBq0MA7Ynz9rS?usp=sharing'"
+          >
+            Development
+          </button>
+        </div>
+
+        <div class="social_links">
+          <h2>Socials</h2>
+          <br />
+          <button
+            class="insta_btn"
+            onclick="window.location.href='https://www.instagram.com/techspec_ind/'"
+          >
+            Instagram
+          </button>
+          <br />
+          <br />
+          <button class="facebook_btn"><a href=""></a>Facebook</button>
+        </div>
+      </div>
+
+      <!-- compare prompt 1
+      <div class="iphone_vs_samsung_overlay" id="iphone_vs_sam">
+        <img
+          id="iphone_vs_samsung"
+          src="/techspec/images/iphone vs samsung.jpg"
+        />
+      </div>
+
+      compare prompt 2
+      <div class="macbook_vs_omen_overlay" id="iphone_vs_sam">
+        <img id="macboox_vs_omen" src="/techspec/images/macbook vs omen.jpg" />
+      </div>
+
+      compare prompt 3
+      <div class="pixelwatch_vs_applewatch_overlay" id="iphone_vs_sam">
+        <img
+          id="pixelwatch_vs_applewatch"
+          src="/techspec/images/pixel_watch vs apple_watch.jpg"
+        />
+      </div>
+
+      compare prompt 4
+      <div class="airpods_vs_buds_overlay" id="iphone_vs_sam">
+        <img
+          id="airpods_vs_buds"
+          src="/techspec/images/airpods vs samsung buds.jpg"
+        />
+      </div> -->
+
+      <!-- Hidden warning prompt -->
+      <div class="warning-prompt-overlay" id="warningPrompt">
+        <div class="warning-prompt">
+          <div class="icon">⚠️</div>
+          <div class="message">
+            This page is still under maintenance please cooperate.
+          </div>
+          <div class="buttons">
+            <button class="cancel-btn" onclick="hideWarning()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document
+        .getElementById("searchBtn")
+        .addEventListener("click", function () {
+          const searchQuery = document
+            .getElementById("deviceSearch")
+            .value.toLowerCase();
+          const redirectMap = {
+            mobiles: "mobiles.html",
+            mobile: "mobiles.html",
+            smartphone: "mobiles.html",
+            laptop: "laptop.html",
+            smartwatch: "smartwatch.html",
+            headphones: "headphones.html",
+            airpods: "headphones.html",
+            "galaxy buds": "headphones.html",
+            macbook: "laptop.html",
+            "surface laptop": "laptop.html",
+            watch: "smartwatch.html",
+          };
+
+          if (redirectMap[searchQuery]) {
+            window.location.href = redirectMap[searchQuery];
+          } else {
+            alert("No matching device found. Please try again.");
+          }
+        });
+
+      // Show the warning prompt
+      function showWarning() {
+        document.getElementById("warningPrompt").style.display = "flex";
+      }
+
+      // Hide the warning prompt
+      function hideWarning() {
+        document.getElementById("warningPrompt").style.display = "none";
+      }
+
+      function toggleImage1() {
+        const image = document.getElementById("iphone_vs_samsung");
+        if (image.style.display === "block") {
+          image.style.display = "none"; // Hide the image
+        } else {
+          image.style.display = "block"; // Show the image
+        }
+      }
+
+      function toggleImage2() {
+        const image = document.getElementById("macboox_vs_omen");
+        if (image.style.display === "block") {
+          image.style.display = "none"; // Hide the image
+        } else {
+          image.style.display = "block"; // Show the image
+        }
+      }
+
+      function toggleImage3() {
+        const image = document.getElementById("pixelwatch_vs_applewatch");
+        if (image.style.display === "block") {
+          image.style.display = "none"; // Hide the image
+        } else {
+          image.style.display = "block"; // Show the image
+        }
+      }
+
+      function toggleImage4() {
+        const image = document.getElementById("airpods_vs_buds");
+        if (image.style.display === "block") {
+          image.style.display = "none"; // Hide the image
+        } else {
+          image.style.display = "block"; // Show the image
+        }
+      }
+    </script>
+  </body>
+</html>

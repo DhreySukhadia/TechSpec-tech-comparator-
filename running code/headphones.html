@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSpec - Compare Headphones</title>
+    <link rel="stylesheet" href="/running code/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #14213d;
+        }
+        h2 {
+            color: white;
+        }
+
+        .navbar {
+            background-color: #14213d;
+            padding: 10px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin: 30px 0;
+            color: black; /* Changed to black */
+        }
+
+        .compare-search select {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+
+        #compareBtn {
+            background-color: #ebe9e1;
+            color: #e43d12;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.7s;
+        }
+
+        #compareBtn:hover {
+            background-color: #fca311;
+            color: white;
+            box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .comparison-table {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px auto;
+            color: black; /* Changed to black */
+        }
+
+        .device-card {
+            border: 1px solid #ccc;
+            background-color: #fca311;
+            padding: 20px;
+            margin: 15px;
+            width: 300px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            color: black; /* Changed to black */
+        }
+
+        .device-card h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .device-card p {
+            margin: 5px 0;
+        }
+
+        .footer_box1{
+            position: absolute;
+            height: 25rem;
+            width: 95.6rem;
+            top: 40rem;
+            background-color: black;
+            font-family: 'dubai',sans-serif;
+        }
+        
+        .footer_box1 .f_1{
+            position: absolute;
+            height: 16rem;
+            top: 2rem;
+            left: 5rem;
+            border-radius: 30px;
+        }
+        
+        .footer_box1 .f_logo{
+            position: absolute;
+            top: 13rem;
+            left: 6.5rem;
+            text-align: center;
+            font-size: 10px;
+            color: white;
+        }
+        
+                                                                /*company box!!*/
+        .footer_box1 .company_links{
+            position: absolute;
+            top: 8rem;
+            left: 30rem;
+            color: white;
+        }
+        
+        .footer_box1 .company_links .abt_btn{
+            position: absolute;
+            border-radius: 15px;
+            left: 0.7rem;
+            width: 5rem;
+            height: 20px;
+            font-size: small;
+            background-color: black;
+            color: #023e8a;
+            border-color: transparent;
+            align-content: space-between;
+            transition: border-color 0.5s ease;
+        }
+        
+        .footer_box1 .company_links .abt_btn:hover{
+            border-color: rgb(123, 121, 121);
+            color: white;
+        }
+        
+        
+        .footer_box1 .company_links .contact_btn2{
+            position: absolute;
+            border-radius: 15px;
+            left: 0.7rem;
+            width: 5rem;
+            height: 20px;
+            font-size: small;
+            background-color: black;
+            color: #023e8a;
+            border-color: transparent;
+            align-content: space-between;
+            transition: border-color 0.5s ease;
+        }
+        
+        
+        .footer_box1 .company_links .contact_btn2:hover{
+            border-color: rgb(123, 121, 121);
+            color: white;
+        }
+        
+                                                                /*services links box*/
+        .footer_box1 .services_link{
+            position: absolute;
+            top: 8rem;
+            left: 50rem;
+            color: white;
+        }
+        
+        .footer_box1 .services_link .devlopment_btn{
+            position: absolute;
+            border-radius: 15px;
+            left: 0.1rem;
+            width: 6rem;
+            height: 30px;
+            font-size: small;
+            background-color: black;
+            color: #023e8a;
+            border-color: transparent;
+            align-content: space-between;
+            transition: border-color 0.5s ease;
+        }
+        
+        
+        .footer_box1 .services_link .devlopment_btn:hover{
+            border-color: rgb(123, 121, 121);
+            color: white;
+        }
+        
+        
+                                                                /*social links*/
+        .footer_box1 .social_links{
+            position: absolute;
+            top: 8rem;
+            left: 70rem;
+            color: white;
+        
+        }
+        
+        
+        .footer_box1 .social_links .insta_btn{
+            position: absolute;
+            border-radius: 15px;
+            width: 5rem;
+            height: 30px;
+            font-size: small;
+            background-color: black;
+            color: #023e8a;
+            border-color: transparent;
+            align-content: space-between;
+            transition: border-color 0.5s ease;
+        }
+        
+        
+        .footer_box1 .social_links .insta_btn:hover{
+            border-color: rgb(123, 121, 121);
+            color: white;
+        }
+        
+        .footer_box1 .social_links .facebook_btn{
+            position: absolute;
+            border-radius: 15px;
+            width: 5rem;
+            height: 30px;
+            font-size: small;
+            background-color: black;
+            color: #023e8a;
+            border-color: transparent;
+            align-content: space-between;
+            transition: border-color 0.5s ease;
+        }
+        
+        
+        .footer_box1 .social_links .facebook_btn:hover{
+            border-color: rgb(123, 121, 121);
+            color: white;
+        }
+        
+        .instagram_icon{
+            position: fixed;
+            bottom: 5rem;
+            left: 0.5rem;
+            height: 25px;
+            z-index: 3;
+        }
+        .support_icon{
+            position: fixed;
+            height: 29px;
+            bottom: 2rem;
+            z-index: 3;
+            left: 0.5rem;
+        
+        }
+        
+        @keyframes appear{
+            from{
+            opacity: 0;
+            scale: 0.4;
+            }
+            
+            to{
+            opacity: 1;
+            scale: 1;
+            }
+            }
+        
+        
+        
+        
+            /*under maintainence prompt*/
+            .warning-prompt-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                display: none; /* Hidden by default */
+                justify-content: center;
+                align-items: center;
+                z-index: 3;
+              }
+          
+              .warning-prompt {
+                background-color: #fff;
+                border: 2px solid #e74c3c;
+                border-radius: 8px;
+                padding: 20px;
+                width: 400px;
+                box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+                text-align: center;
+              }
+          
+              .warning-prompt .icon {
+                font-size: 50px;
+                color: #e74c3c;
+                margin-bottom: 20px;
+              }
+          
+              .warning-prompt .message {
+                font-size: 18px;
+                color: #333;
+                margin-bottom: 20px;
+              }
+          
+              .warning-prompt .buttons {
+                display: flex;
+                justify-content: space-around;
+                margin-top: 20px;
+              }
+          
+              .warning-prompt button {
+                padding: 10px 20px;
+                font-size: 16px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                outline: none;
+                transition: background-color 0.3s;
+              }
+          
+              .warning-prompt .cancel-btn {
+                background-color: #95a5a6;
+                color: #fff;
+              }
+          
+              .warning-prompt .cancel-btn:hover {
+                background-color: #7f8c8d;
+              }
+          
+              .warning-prompt .proceed-btn {
+                background-color: #e74c3c;
+                color: #fff;
+              }
+          
+              .warning-prompt .proceed-btn:hover {
+                background-color: #c0392b;
+              }
+          
+              /* Button to trigger warning */
+              .trigger-btn {
+                padding: 10px 20px;
+                font-size: 18px;
+                background-color: #3498db;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                outline: none;
+                transition: background-color 0.3s;
+              }
+          
+              .trigger-btn:hover {
+                background-color: #2980b9;
+              }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="/main website code/main_page.html"><h1>TechSpec</h1></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="laptop.html">Laptops</a></li>
+                    <li><a href="smartwatch.html">Smartwatches</a></li>
+                    <li><a href="mobiles.html">mobiles</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="comparison-header">
+        <h2>Compare Headphones</h2>
+        <div class="compare-search">
+            <select id="device1">
+                <option value="">Select Headphone 1</option>
+            </select>
+            <select id="device2">
+                <option value="">Select Headphone 2</option>
+            </select>
+            <button id="compareBtn">Compare</button>
+        </div>
+    </section>
+
+    <section class="comparison-table" id="comparisonTable">
+        <!-- Dynamic headphone comparison will appear here -->
+    </section>
+
+
+    <!--8th section footer-->
+
+ <div class="footer_box1">
+    <img class="f_1" src="/graphics/logo.png">
+    <div class="f_logo">
+        <h2>TechSpec(technical comparator)</h2>
+        <br>
+        <h4>estd 2024</h4>
+    </div>
+
+    <!--company links part footer!!!-->
+
+    <!--company section-->
+    <div class="company_links">
+        <h2>Company</h2>
+        <br>
+        <button class="abt_btn" onclick="window.location.href='about_us.html'">About Us</button>
+        <br>
+        <br>
+        <button class="contact_btn2" onclick="window.location.href='mailto:aryandeshmukh2345@gmail.com'">Contact Us</button>
+    </div>
+
+    <!--services section-->
+    <div class="services_link">
+        <h2>Services</h2>
+        <br>
+        <button class="devlopment_btn" onclick="window.location.href='https://drive.google.com/drive/folders/1j3TzNaFbRSb61lTCIU6pBq0MA7Ynz9rS?usp=sharing'">Devlopment</button>
+
+    </div>
+
+    <!--social section-->
+    <div class="social_links">
+        <h2>Socials</h2>
+        <br>
+        <button class="insta_btn" onclick="window.location.href='https://www.instagram.com/techspec_ind/'">instagram</button>
+        <br>
+        <br>
+        <button class="facebook_btn"> <a href=""></a>Facebook</button>
+    </div>
+   </div>
+
+
+    <script>
+        // Sample headphone data for demonstration
+        const headphonesData = [
+            {
+                name: "Sony WH-1000XM4",
+                company: "Sony",
+                category: "Over-ear",
+                price: "$348",
+                type: "Wireless",
+                battery: "30 hours",
+                noiseCancellation: "Yes"
+            },
+            {
+                name: "Bose QuietComfort 35 II",
+                company: "Bose",
+                category: "Over-ear",
+                price: "$299",
+                type: "Wireless",
+                battery: "20 hours",
+                noiseCancellation: "Yes"
+            },
+            {
+                name: "Sennheiser HD 660S",
+                company: "Sennheiser",
+                category: "Open-back",
+                price: "$399",
+                type: "Wired",
+                battery: "N/A",
+                noiseCancellation: "No"
+            }
+        ];
+
+        // Populate dropdowns with headphone options
+        function populateDropdowns() {
+            const device1Dropdown = document.getElementById('device1');
+            const device2Dropdown = document.getElementById('device2');
+            
+            headphonesData.forEach(headphone => {
+                const option1 = document.createElement('option');
+                option1.value = headphone.name;
+                option1.text = headphone.name;
+                device1Dropdown.add(option1);
+
+                const option2 = document.createElement('option');
+                option2.value = headphone.name;
+                option2.text = headphone.name;
+                device2Dropdown.add(option2);
+            });
+        }
+
+        // Function to display comparison
+        function displayComparison() {
+            const selectedDevice1 = document.getElementById('device1').value;
+            const selectedDevice2 = document.getElementById('device2').value;
+
+            // Find the selected headphones in data
+            const headphone1 = headphonesData.find(headphone => headphone.name === selectedDevice1);
+            const headphone2 = headphonesData.find(headphone => headphone.name === selectedDevice2);
+
+            // Clear previous comparison results
+            const comparisonTable = document.getElementById('comparisonTable');
+            comparisonTable.innerHTML = '';
+
+            // Display the two selected headphones
+            if (headphone1 && headphone2) {
+                const headphone1Card = `
+                    <div class="device-card">
+                        <h3>${headphone1.name}</h3>
+                        <p>Company: ${headphone1.company}</p>
+                        <p>Category: ${headphone1.category}</p>
+                        <p>Price: ${headphone1.price}</p>
+                        <p>Type: ${headphone1.type}</p>
+                        <p>Battery Life: ${headphone1.battery}</p>
+                        <p>Noise Cancellation: ${headphone1.noiseCancellation}</p>
+                    </div>
+                `;
+
+                const headphone2Card = `
+                    <div class="device-card">
+                        <h3>${headphone2.name}</h3>
+                        <p>Company: ${headphone2.company}</p>
+                        <p>Category: ${headphone2.category}</p>
+                        <p>Price: ${headphone2.price}</p>
+                        <p>Type: ${headphone2.type}</p>
+                        <p>Battery Life: ${headphone2.battery}</p>
+                        <p>Noise Cancellation: ${headphone2.noiseCancellation}</p>
+                    </div>
+                `;
+
+                comparisonTable.innerHTML = headphone1Card + headphone2Card;
+            } else {
+                comparisonTable.innerHTML = '<p>Please select two valid headphones to compare.</p>';
+            }
+        }
+
+        // Attach event listener to the Compare button
+        document.getElementById('compareBtn').addEventListener('click', displayComparison);
+
+        // Populate dropdowns on page load
+        window.onload = populateDropdowns;
+    </script>
+</body>
+</html>
+

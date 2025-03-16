@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSpec - Compare Devices</title>
+    <style>
+
+      h3{
+        color: black;
+      }
+      .name{
+        color: black;
+      }
+      .card_1 {
+        position: relative;
+        top: 5rem;
+        left: 15rem;
+        width: 300px;
+        height: 400px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        color: #fff;
+        text-align: center;
+      }
+  
+      .card_1::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(135deg, rgba(255, 0, 150, 0.3), rgba(0, 255, 255, 0.3));
+        transform: rotate(45deg);
+        mix-blend-mode: screen;
+        pointer-events: none;
+      }
+  
+      .card_1 .product_img {
+        width: 150px;
+        height: 150px;
+        top: 0rem;
+        object-fit: contain;
+        margin-bottom: 20px;
+      }
+
+      .features_icon .battery{
+        position: absolute;
+        top: 19.8rem;
+        left: 3.5rem;
+        height: 20px;
+      }
+      .features_icon .camera{
+        position: absolute;
+        top: 17.3rem;
+        left: 3.5rem;
+        height: 20px;
+
+      }
+      .features_icon .ram{
+        position: absolute;
+        top: 22.4rem;
+        left: 3.5rem;
+        height: 20px;
+      }
+      .features_icon .sr{
+        position: absolute;
+        top: 24.95rem;
+        left: 3.5rem;
+        height: 20px;
+      }
+
+    </style>
+</head>
+<body>
+    <div class="card_1">
+      <h2 class="name">iphone 16</h2>
+
+      <img class="product_img" src="/product_imgs/apple/16_back.png">
+
+      <div class="features">
+        <div class="features_icon">
+          <img class="battery" src="/icons/battery.png">
+          <img class="camera" src="/icons/camera.png">
+          <img class="ram" src="/icons/ram-memory.png">
+          <img class="sr" src="/icons/maximize.png">
+        </div>
+      <h3 class="cam">Camera: 50mp</h3>
+      <h3 class="bat">battery: 4000mah</h3>
+      <h3 class="ra">RAM: 8GB</h3>
+      <h3 class="screen">Screen: 6.1"</h3>
+
+    </div>
+  </div>
+</body>
+</html>

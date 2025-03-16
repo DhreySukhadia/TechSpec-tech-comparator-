@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoverable Tooltip</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .icon-container {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .icon-container i {
+      font-size: 50px;
+      color:blue;
+    }
+
+    .tooltip {
+      position: absolute;
+      bottom: 120%; /* Adjust placement above the icon */
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-size: 14px;
+      white-space: nowrap;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .tooltip::after {
+      content: \"\";
+      position: absolute;
+      top: 100%; /* Arrow below the tooltip */
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 6px;
+      border-style: solid;
+      border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+    }
+
+    .icon-container:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="icon-container">
+    <i class="fas fa-info-circle"></i> <!-- Replace with your icon -->
+    <div class="tooltip">This is a tooltip message</div>
+  </div>
+
+  <!-- Font Awesome for the icon -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+<!--<div class="features_icon">
+    <img class="battery" src="/icons/battery.png">
+    <img class="camera" src="/icons/camera.png">
+    <img class="ram" src="/icons/ram-memory.png">
+    <img class="sr" src="/icons/maximize.png">
+  </div>
+-->
